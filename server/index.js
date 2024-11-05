@@ -16,7 +16,7 @@ const corsOptions ={
 app.use(cors(corsOptions)) // Use this after the variable declaration
 
 //connect cloud database
-mongoose.connect(process.env.DATABASES, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: false
 })
