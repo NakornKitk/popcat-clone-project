@@ -6,7 +6,6 @@ import sound from './sound/sound.wav'
 import Loading from './components/loading.js'
 
  
-
 function App() {
   let [count,setCount] = useState('')
   let {localCount,setlocalCount} = useStore()
