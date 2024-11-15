@@ -1,4 +1,5 @@
 import Navbar from './components/navbar'
+import Footer from './components/footer.js'
 import {useState, useEffect} from 'react'
 import useStore from './store/store.js'
 import './input.css'
@@ -43,8 +44,8 @@ function App() {
           // console.log(result)
           setCount(result.data.numCount)
           setlocalCount()
-          setIsImageOne((prev) => !prev);
           playAudio(sound)
+          setIsImageOne((prev) => !prev);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -55,19 +56,17 @@ function App() {
   }
 
 
+
+
   return (
-    <div className={isImageOne ? 'bg-image-1 h-[100vh] bg-top bg-cover' : 'bg-image-2 h-[100vh] bg-top bg-cover'} onClick={incrementClick} >
+    <div className={isImageOne ? 'bg-image-1 h-[100vh] bg-top bg-cover' : 'bg-image-2 h-[100vh] bg-top bg-cover'} onClick={incrementClick}>
       <Navbar/>
       {loading ? (<Loading />) : (
         <div>
           <div className="londrina-outline-regular h-[95%] w-[100%]">
             <p className="text-center text-[70px] md:text-[50px]">{localCount}</p>
           </div>
-          <div className="text-4xl w-[100%] bg-white fixed bottom-0">
-            <p className="text-center p-[10px] londrina-outline-regular">
-              All time clicks: {count} times
-            </p>
-          </div>
+          <Footer count={count}/>
         </div>
     )}
     </div>
